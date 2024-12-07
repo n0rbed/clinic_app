@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace db2.Pages;
+namespace webclinic.Pages;
 
 public class bookModel : PageModel
 {

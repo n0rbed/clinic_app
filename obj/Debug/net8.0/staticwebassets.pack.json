@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "/Users/abdelrahmantaha/Desktop/db2/obj/Debug/net8.0/scopedcss/projectbundle/db2.bundle.scp.css",
-      "PackagePath": "staticwebassets/db2.bundle.scp.css"
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/obj/Debug/net8.0/scopedcss/projectbundle/webclinic.bundle.scp.css",
+      "PackagePath": "staticwebassets/webclinic.bundle.scp.css"
     },
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/Appointments.css",
@@ -51,6 +51,10 @@
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/signup.css",
       "PackagePath": "staticwebassets/css/signup.css"
+    },
+    {
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/slicknav.min.css",
@@ -233,6 +237,10 @@
       "PackagePath": "staticwebassets/img/pf4.jpg"
     },
     {
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/img/qq.png",
+      "PackagePath": "staticwebassets/img/qq.png"
+    },
+    {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/img/section-img.png",
       "PackagePath": "staticwebassets/img/section-img.png"
     },
@@ -331,6 +339,10 @@
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/signup.js",
       "PackagePath": "staticwebassets/js/signup.js"
+    },
+    {
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
     },
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/slicknav.min.js",
@@ -581,19 +593,19 @@
       "PackagePath": "staticwebassets/mail/mail.php"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.db2.props",
-      "PackagePath": "build\\db2.props"
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.webclinic.props",
+      "PackagePath": "build\\webclinic.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.db2.props",
-      "PackagePath": "buildMultiTargeting\\db2.props"
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.webclinic.props",
+      "PackagePath": "buildMultiTargeting\\webclinic.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.db2.props",
-      "PackagePath": "buildTransitive\\db2.props"
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.webclinic.props",
+      "PackagePath": "buildTransitive\\webclinic.props"
     },
     {
-      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.db2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.webclinic.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     }
   ],

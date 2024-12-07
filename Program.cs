@@ -2,8 +2,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -22,7 +20,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseSession();
 app.MapRazorPages();
 
 app.Run();

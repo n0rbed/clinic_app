@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace db2.Pages;
+namespace webclinic.Pages;
 public class ContactUsModel : PageModel
 {
     private readonly ILogger<ContactUsModel> _logger;

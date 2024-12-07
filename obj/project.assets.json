@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/abdelrahmantaha/Desktop/db2/db2.csproj",
-      "projectName": "db2",
-      "projectPath": "/Users/abdelrahmantaha/Desktop/db2/db2.csproj",
+      "projectUniqueName": "/Users/abdelrahmantaha/Desktop/db2/webclinic.csproj",
+      "projectName": "webclinic",
+      "projectPath": "/Users/abdelrahmantaha/Desktop/db2/webclinic.csproj",
       "packagesPath": "/Users/abdelrahmantaha/.nuget/packages/",
       "outputPath": "/Users/abdelrahmantaha/Desktop/db2/obj/",
       "projectStyle": "PackageReference",
