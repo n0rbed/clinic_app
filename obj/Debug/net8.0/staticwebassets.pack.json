@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets/css/responsive.css"
     },
     {
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/signup.css",
+      "PackagePath": "staticwebassets/css/signup.css"
+    },
+    {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/slicknav.min.css",
       "PackagePath": "staticwebassets/css/slicknav.min.css"
     },
@@ -323,6 +327,10 @@
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/popper.min.js",
       "PackagePath": "staticwebassets/js/popper.min.js"
+    },
+    {
+      "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/signup.js",
+      "PackagePath": "staticwebassets/js/signup.js"
     },
     {
       "Id": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/slicknav.min.js",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M83OKGjdWO0vPV97MnOGkR0JHWpp/+GhgAxmrachOBg=",
+  "Hash": "mDmH93wx2WImMEWAR8dTKHX2iROwu+RQJmkhyTDE97E=",
   "Source": "db2",
   "BasePath": "_content/db2",
   "Mode": "Default",
@@ -74,12 +74,12 @@
       "OriginalItemSpec": "wwwroot/css/animate.min.css"
     },
     {
-      "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/DrAppointments.css",
+      "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/Appointments.css",
       "SourceId": "db2",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/",
       "BasePath": "_content/db2",
-      "RelativePath": "css/DrAppointments.css",
+      "RelativePath": "css/Appointments.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -90,7 +90,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/DrAppointments.css"
+      "OriginalItemSpec": "wwwroot/css/Appointments.css"
     },
     {
       "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/bootstrap.min.css",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/responsive.css"
+    },
+    {
+      "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/signup.css",
+      "SourceId": "db2",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/",
+      "BasePath": "_content/db2",
+      "RelativePath": "css/signup.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/signup.css"
     },
     {
       "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/css/slicknav.min.css",
@@ -1573,6 +1592,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/popper.min.js"
+    },
+    {
+      "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/signup.js",
+      "SourceId": "db2",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/",
+      "BasePath": "_content/db2",
+      "RelativePath": "js/signup.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/signup.js"
     },
     {
       "Identity": "/Users/abdelrahmantaha/Desktop/db2/wwwroot/js/slicknav.min.js",
