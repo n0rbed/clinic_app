@@ -1,0 +1,450 @@
+@page
+@model PatientAppModel
+@{
+    ViewData["Title"] = "Patient Appointment";
+}
+<div class="header-inner">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-12">
+                            <div class="logo">
+                                <a href="index"><img src="img/logo.png" alt="#"></a>
+                            </div>
+                            <div class="mobile-nav"></div>
+                        </div> 
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="main-menu">
+                                <nav class="navigation">
+                                    <ul class="nav menu">
+                                        <li><a href="index">Home</a></li>
+                                        <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="ContactUs">Contact Us</a></li>
+										<li class="active"><a href="/Appointments/PatientApp">Appointments</a></li>
+                                        <li><a href="PatientProfile">My Profile</a></li>
+									
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                       @*  <div class="col-lg-2 col-12">
+                            <div class="get-quote">
+                                <a href="Appointment.html" class="btn">Book Appointment</a>
+                            </div>
+                        </div> *@
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="breadcrumbs overlay" style="background-image: url('img/image.png');">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Appointments</h2>
+                    <ul class="bread-list">
+                        <li><a href="Index">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Appointments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    h1 {text-align: center;}
+    h2 {text-align: center;}
+    p {text-align: center;}
+    .Appointments {
+        align-items: center;
+        margin: 0 auto;
+        width: 80%;
+        /* General Body Styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+
+    /* Review Form Container */
+    .review-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .review-card h2 {
+        margin: 0 0 5px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .review-card .info {
+        margin-bottom: 15px;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .stars {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin: 10px 0;
+    }
+
+    .star {
+        width: 30px;
+        height: 30px;
+        background: url('star-outline.svg') no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .star:hover,
+    .star.selected {
+        background: url('star-filled.svg') no-repeat center;
+        transform: scale(1.2);
+    }
+
+    .feedback {
+        margin: 10px 0;
+        color: #777;
+    }
+
+    .feedback textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: none;
+        font-size: 14px;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        background: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-size: 14px;
+    }
+
+    .add-btn:hover {
+        background: #0056b3;
+    }
+
+    .add-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+    /* Review Form Container (Hidden by Default) */
+    .review-form-container {
+        display: none;
+        margin-top: 15px;
+    }
+    .star {
+    font-size: 30px; /* Size of the star */
+    color: #ccc; /* Color of empty stars */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease; /* Hover effects */
+            }
+
+    .star.selected, .star:hover {
+    color: gold; /* Color of selected or hovered stars */
+    transform: scale(1.2); /* Slight enlargement on hover */
+    }
+
+    </style>
+
+<div class="Appointments">
+    <br>
+    <div class="tabs">
+        <button class="tab active" onclick="showSection('upcoming')">Upcoming</button>
+        <button class="tab" onclick="showSection('pending')">Pending</button>
+        <button class="tab" onclick="showSection('completed')">Completed</button>
+        <button class="tab" onclick="showSection('canceled')">Canceled</button>
+    </div>
+    
+    <!-- Upcoming Appointments -->
+    <div id="upcoming" class="Appointment-section active">
+        <h2>Today</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.TodayDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status confirmed">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                    <div class="Appointment-actions">
+                        <button class="btn cancel" style="display: block; margin: 0 auto;">Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <br>
+        <h2>Tomorrow</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.TomorrowDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status confirmed">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                    <div class="Appointment-actions">
+                        <button class="btn cancel" style="display: block; margin: 0 auto;">Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <br>
+        <h2>Later</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.LaterDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status confirmed">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                    <div class="Appointment-actions">
+                        <button class="btn cancel" style="display: block; margin: 0 auto;">Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Pending Appointments -->
+    <div id="pending" class="Appointment-section">
+        <h2>Pending for confirmation</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.PendingDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status pending">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                    <div class="Appointment-actions">
+                        <button class="btn cancel" style="display: block; margin: 0 auto;">Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Completed Appointments -->
+    <div id="completed" class="Appointment-section">
+        <h2>Completed Appointments</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.CompletedDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status completed">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                     <div class="Appointment-actions">
+                        <button class="btn diagnose">View Diagnose</button>
+                        <button class="btn diagnose" style="background-color: white;" onclick="toggleReviewForm(this)">Add Review</button>
+                    </div>
+
+                    <div id="review-form-@Appointment.Name" class="review-form-container" style="display: none;">
+                        <div class="review-card">
+                            <h2>@Appointment.Name</h2>
+                            <p class="info">General Practitioner</p>
+                            <div class="stars">
+                                <span class="star" data-value="1">☆</span>
+                                <span class="star" data-value="2">☆</span>
+                                <span class="star" data-value="3">☆</span>
+                                <span class="star" data-value="4">☆</span>
+                                <span class="star" data-value="5">☆</span>
+                            </div>
+                            <div class="feedback">
+                                <textarea placeholder="Write your feedback..." rows="3"></textarea>
+                            </div>
+                            <button class="add-btn" disabled>Add</button>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Canceled Appointments -->
+    <div id="canceled" class="Appointment-section">
+        <h2>Canceled Appointments</h2>
+        <br>
+        <div class="Appointments-group">
+            @foreach (var Appointment in Model.CancelledDrAppointments)
+            {
+                <div class="Appointment-card">
+                    <div class="Appointment-header">
+                        <img src="default-user.png" alt="User Photo" class="user-photo" />
+                        <span>@Appointment.Name</span>
+                        <span class="status canceled">@Appointment.Status</span>
+                    </div>
+                    <div class="Appointment-info">
+                        <div>
+                            <span class="icon">⏰</span> @Appointment.Time
+                        </div>
+                        <div>
+                            <span class="icon">📅</span> @Appointment.Date
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Function to show/hide appointment sections
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.Appointment-section').forEach(function (section) {
+            section.classList.remove('active');
+        });
+
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(function (tab) {
+            tab.classList.remove('active');
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).classList.add('active');
+
+        // Set the clicked tab as active
+        event.target.classList.add('active');
+    }
+
+    function showReviewForm(appointmentId) {
+        // Hide all open forms first
+        document.querySelectorAll('.review-form-container').forEach(form => {
+            form.style.display = 'none';
+        });
+
+        // Show the form for the selected appointment
+        const reviewForm = document.getElementById(`review-form-${appointmentId}`);
+        if (reviewForm) {
+            reviewForm.style.display = 'block';
+        }
+    }
+    function toggleReviewForm(button) {
+    // Get the parent container of the clicked button
+    const appointmentCard = button.closest('.Appointment-card');
+
+    // Find the review form within this card
+    const reviewForm = appointmentCard.querySelector('.review-form-container');
+
+    if (reviewForm.style.display === 'block') {
+        // If the form is already visible, hide it
+        reviewForm.style.display = 'none';
+    } else {
+        // Otherwise, show the form
+        reviewForm.style.display = 'block';
+    }
+}
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const stars = document.querySelectorAll('.star');
+        const feedbackAreas = document.querySelectorAll('.feedback textarea');
+        const addButtons = document.querySelectorAll('.add-btn');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const starGroup = star.parentNode;
+                const starsInGroup = starGroup.querySelectorAll('.star');
+                starsInGroup.forEach(s => s.classList.remove('selected'));
+                star.classList.add('selected');
+
+                // Enable the Add button
+                const button = star.closest('.review-card').querySelector('.add-btn');
+                if (button) button.disabled = false;
+            });
+        });
+
+        feedbackAreas.forEach(feedback => {
+            feedback.addEventListener('input', () => {
+                const button = feedback.closest('.review-card').querySelector('.add-btn');
+                button.disabled = !feedback.value.trim();
+            });
+        });
+    });
+
+</script>
