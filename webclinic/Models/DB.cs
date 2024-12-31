@@ -1126,13 +1126,13 @@ namespace webclinic.Models
 
         public int getRating(int id)
         {
-            int rating = 0;
+            int? rating = 0;
             string queryString = $"SELECT AVG(NStars) as rating\r\nFROM Reviews\r\nWHERE DoctorID = '{id}'\r\ngroup by DoctorID";
             SqlCommand cmd = new SqlCommand(queryString, con);
             try
             {
                 con.Open();
-                rating = (int)cmd.ExecuteScalar();
+                rating = (int?)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -1142,20 +1142,23 @@ namespace webclinic.Models
             {
                 con.Close();
             }
-
-            return rating;
+            if (rating == null)
+            {
+                return 0;
+            }
+            return rating.Value;
         }
 
 
         public int getPatientsTreated(int id)
         {
-            int rating = 0;
+            int? rating = 0;
             string queryString = $"SELECT COUNT(PatientID) as Patients_Treated\r\nFROM Appointment\r\nWHERE DoctorID = '{id}' and PatientID is not null\r\ngroup by DoctorID";
             SqlCommand cmd = new SqlCommand(queryString, con);
             try
             {
                 con.Open();
-                rating = (int)cmd.ExecuteScalar();
+                rating = (int?)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -1165,8 +1168,11 @@ namespace webclinic.Models
             {
                 con.Close();
             }
-
-            return rating;
+            if(rating == null)
+            {
+                return 0;
+            }
+            return rating.Value;
         }
 
         public string getMedicalField(int id)

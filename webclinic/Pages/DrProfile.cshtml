@@ -8,30 +8,30 @@
 
 
 <div class="header-inner">
-            <div class="container">
-                <div class="inner">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <div class="logo">
-                                <a href="index"><img src="img/logo.png" alt="#"></a>
-                            </div>
-                            <div class="mobile-nav"></div>
-                        </div>
-                        <div class="col-lg-7 col-md-9 col-12">
-                            <div class="main-menu">
-                                <nav class="navigation">
-                                    <ul class="nav menu">
-                                        <li><a href="index">Home</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-12">
+                    <div class="logo">
+                        <a href="index"><img src="img/logo.png" alt="#"></a>
                     </div>
+                    <div class="mobile-nav"></div>
+                </div>
+                <div class="col-lg-7 col-md-9 col-12">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="index">Home</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</div>
+</div>
+</header>
 <!-- Breadcrumbs -->
 <div class="breadcrumbs overlay">
     <div class="container">
@@ -66,24 +66,24 @@
                 <p><strong>Rating:</strong> @Model.Rating/5</p>
                 <p><strong>Patients Treated:</strong> @Model.PatientsTreated</p>
                 @if (HttpContext.Session.GetString("user_type") == "a")
-				{
-					<span class="badge text-white @(Model.IsActivated ? "bg-success" : "bg-warning text-dark")">
-							@(Model.IsActivated ? "Active" : "Banned")
-					</span>
-					<span class="badge text-white @(Model.IsVerified ? "bg-success" : "bg-warning text-dark")">
-							@(Model.IsVerified ? "Verified" : "Unverified")
-					</span>
+                {
+                    <span class="badge text-white @(Model.IsActivated ? "bg-success" : "bg-warning text-dark")">
+                        @(Model.IsActivated ? "Active" : "Banned")
+                    </span>
+                    <span class="badge text-white @(Model.IsVerified ? "bg-success" : "bg-warning text-dark")">
+                        @(Model.IsVerified ? "Verified" : "Unverified")
+                    </span>
 
                     @if(!string.IsNullOrEmpty(@Model.natIDPic))
                     {
-						<a class="badge text-white bg-primary" href="@Model.natIDPic" target="_blank">View National ID</a>
+                        <a class="badge text-white bg-primary" href="@Model.natIDPic" target="_blank">View National ID</a>
                     }
                     @if(!string.IsNullOrEmpty(@Model.docCertPic))
                     {
-						<a class="badge text-white bg-primary" href="@Model.docCertPic" target="_blank">View Medical Cert.</a>
+                        <a class="badge text-white bg-primary" href="@Model.docCertPic" target="_blank">View Medical Cert.</a>
                     }
 
-				}
+                }
 
             </div>
 
@@ -92,19 +92,19 @@
     </div>
     @if (HttpContext.Session.GetString("user_type") == "a")
     {
-    <div class="d-flex justify-content-end gap-5">
-        <form method="post" asp-page-handler="ToggleStatus">
-            <button type="submit" class="btn @(Model.IsActivated ? "btn-danger" : "btn-success") btn-lg px-4">
+        <div class="d-flex justify-content-end gap-5">
+            <form method="post" asp-page-handler="ToggleStatus">
+                <button type="submit" class="btn @(Model.IsActivated ? "btn-danger" : "btn-success") btn-lg px-4">
                     @(Model.IsActivated ? "Ban" : "Activate")
-            </button>
-        </form>
+                </button>
+            </form>
 
-        <form method="post" asp-page-handler="ToggleSSSN">
-            <button type="submit" class="btn @(Model.IsVerified ? "btn-danger" : "btn-success") btn-lg px-4">
+            <form method="post" asp-page-handler="ToggleSSSN">
+                <button type="submit" class="btn @(Model.IsVerified ? "btn-danger" : "btn-success") btn-lg px-4">
                     @(Model.IsVerified ? "Unverify" : "Verify")
-            </button>
-        </form>
-    </div>
+                </button>
+            </form>
+        </div>
 
 
 
@@ -115,14 +115,17 @@
         <h5 class="mb-3">Education 
         </h5>
         <div class="row g-3">
-            @for (int i = 0; i < Model.education.Rows.Count; i++)
+            @if(Model.education is not null)
             {
-                <div class="col-md-6">
-                    <div class="p-3 border rounded">
-                                    <h6 class="mb-1">@Model.education.Rows[i]["Institute"].ToString()</h6>
-                                <p class="text-muted">@Model.education.Rows[i]["Description"].ToString()</p>
+                @for (int i = 0; i < Model.education.Rows.Count; i++)
+                {
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded">
+                            <h6 class="mb-1">@Model.education.Rows[i]["Institute"].ToString()</h6>
+                            <p class="text-muted">@Model.education.Rows[i]["Description"].ToString()</p>
+                        </div>
                     </div>
-                </div>
+                }
             }
         </div>
     </div>
@@ -132,14 +135,18 @@
         <h5 class="mb-3">Experience 
         </h5>
         <div class="row g-3">
-            @for (int i = 0; i < Model.experiance.Rows.Count; i++)
+            @if(Model.experiance is not null && Model.experiance.Rows.Count != 0)
             {
-                <div class="col-md-6">
-                    <div class="p-3 border rounded">
-                                <h6 class="mb-1">@Model.experiance.Rows[i]["Institution"].ToString()</h6>
-                                <p class="text-muted">@Model.experiance.Rows[i]["JobPosition"].ToString()</p>
+                @for (int i = 0; i < Model.experiance.Rows.Count; i++)
+                {
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded">
+                            <h6 class="mb-1">@Model.experiance.Rows[i]["Institution"].ToString()</h6>
+                            <p class="text-muted">@Model.experiance.Rows[i]["JobPosition"].ToString()</p>
+                        </div>
                     </div>
-                </div>
+                }
+
             }
         </div>
     </div>
@@ -150,8 +157,11 @@
         </h5>
         <div class="row">
             <div class="col-md-12">
-                <p><strong>@Model.ClinicDetails.Rows[0]["Institution"].ToString()</strong></p>
-                <p>@Model.ClinicDetails.Rows[0]["address"].ToString()</p>
+                @if(Model.ClinicDetails is not null && Model.ClinicDetails.Rows.Count != 0)
+                {
+					<p><strong>@Model.ClinicDetails.Rows[0]["Institution"].ToString()</strong></p>
+					<p>@Model.ClinicDetails.Rows[0]["address"].ToString()</p>
+                }
             </div>
         </div>
     </div>

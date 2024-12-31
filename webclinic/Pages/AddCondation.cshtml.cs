@@ -42,7 +42,7 @@ public class AddConditionModel : PageModel
 
     private List<string> GetConditions()
     {
-        d = db.getCondations();
+        d = db.getConditions();
         var conditions = new List<string>();
 
         foreach (System.Data.DataRow row in d.Rows)
