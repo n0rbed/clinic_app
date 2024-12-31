@@ -38,7 +38,7 @@ namespace webclinic.Models
             connectionString = "Data Source=DESKTOP-NQ0JKHE; Initial Catalog=clinicdb; Integrated Security=True; Trust Server Certificate = True;";
 
             // yassin's connection string:
-            connectionString = "Data Source=AN\\SQLEXPRESS; Initial Catalog=clinicdb; Integrated Security=True; Trust Server Certificate = True;";
+            //connectionString = "Data Source=AN\\SQLEXPRESS; Initial Catalog=clinicdb; Integrated Security=True; Trust Server Certificate = True;";
 
             con.ConnectionString = connectionString;
 		}
@@ -1741,7 +1741,8 @@ namespace webclinic.Models
 
         public bool Addcondation(int id, string condation, int severity, DateTime date)
         {
-            int num = getCondationID(id,condation);
+
+            int num = getCondationID(id,condation)+1;
             string queryString;
             queryString = $"INSERT INTO LongTermConditions (PatientID, ConditionID, Severity, DateOfFirstInstance)\r\nVALUES\r\n    ('{id}', (select ConditionID from LTCTypes where ConditionName = '{condation}'), '{severity}', '{date.ToString("yyyy-MM-dd HH:mm:ss")}');";
             
