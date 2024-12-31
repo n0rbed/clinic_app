@@ -56,7 +56,7 @@ public class AddConditionModel : PageModel
 
     private void AddCondition(string conditionName, int severity, DateTime dateOfFirstInstance)
     {
-        int id = HttpContext.Session.GetInt32("Patient_ID").Value;
+        int id = HttpContext.Session.GetInt32("user_id").Value;
         db.Addcondation(id,conditionName,severity,dateOfFirstInstance);
     }
 }
